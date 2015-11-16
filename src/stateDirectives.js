@@ -135,8 +135,10 @@ function $StateRefDirective($state, $timeout) {
       };
 
       if (ref.paramExpr) {
-        scope.$watch(ref.paramExpr, function(val) { if (val !== def.params) update(val); }, true);
-        def.params = angular.copy(scope.$eval(ref.paramExpr));
+        //scope.$watch(ref.paramExpr, function(val) { if (val !== def.params) update(val); }, true);
+        //def.params = angular.copy(scope.$eval(ref.paramExpr));
+        def.params = scope.$eval(ref.paramExpr);
+
       }
       update();
 
